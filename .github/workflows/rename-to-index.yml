@@ -1,0 +1,17 @@
+name: Rename updated site to index
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename file
+        run: |
+          git config user.name "tkent123456"
+          git config user.email "tkent123456@users.noreply.github.com"
+          git mv corvette-owners-community.html index.html
+          git commit -m "Rename updated site file to index.html"
+          git push
